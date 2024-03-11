@@ -1,6 +1,8 @@
-import ExpenseItem from "./components/ExpenseItem";
+import ExpenseItem from "./components/Expenses/ExpenseItem";
 
-function App() {
+import Card from "./components/UI/Card";
+
+const App = () => {
   const expenses  =[
     {
       id: 'e1',
@@ -28,6 +30,7 @@ function App() {
     <div>
       <h2>Let's get started!</h2>
       <h2 className='expense-item__description h2'>Expense Items</h2>
+      <Card className='expenses'>
       {expenses.map(expense => (
         <ExpenseItem
           key={expense.id}
@@ -37,6 +40,7 @@ function App() {
           LocationOfExpenditure={expense.LocationOfExpenditure}
         />
       ))}
+      </Card>
     </div>
   );
 }
