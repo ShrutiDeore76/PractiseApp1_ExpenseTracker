@@ -1,3 +1,5 @@
+
+import ExpenseForm from "./components/Expenses/ExpenseForm";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 
 import Card from "./components/UI/Card";
@@ -30,6 +32,9 @@ const App = () => {
     <div>
       <h2>Let's get started!</h2>
       <h2 className='expense-item__description h2'>Expense Items</h2>
+      <Card  className='expenseforms'>
+      <ExpenseForm></ExpenseForm>
+      </Card>
       <Card className='expenses'>
       {expenses.map(expense => (
         <ExpenseItem
