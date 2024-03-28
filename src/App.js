@@ -16,6 +16,7 @@ const App = () => {
     setFilteredYear(selectedYear);
   };
 
+  
   const [expenses, setExpenses] = useState([
     {
       id: 'e1',
@@ -48,6 +49,11 @@ const App = () => {
     });
   };
 
+  const filteredExpenses = expenses.filter(expense => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
+
   return (
     <div>
       <h2>Let's get started!</h2>
@@ -55,7 +61,7 @@ const App = () => {
       <NewExpense onAddExpense={addExpenseHandler} />
       <Card className='expenses'>
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-      {expenses.map(expense => (
+      {filteredExpenses.map( (expense) => (
         <ExpenseItem
           key={expense.id}
           title={expense.title}
