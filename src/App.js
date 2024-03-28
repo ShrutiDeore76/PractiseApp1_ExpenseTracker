@@ -5,6 +5,8 @@ import ExpensesFilter from './components/Expenses/ExpenseFilter';
 
 import NewExpense from "./components/NewExpense/NewExpense";
 
+import ExpensesChart from './components/Expenses/ExpenseChart';
+
 
 import ExpenseLists from './components/Expenses/ExpenseLists';
 
@@ -23,21 +25,21 @@ const App = () => {
     {
       id: 'e1',
       title: 'Food',
-      amount: 'Rs.10',
+      amount: 10,
       date: new Date(2020, 7, 14),
       LocationOfExpenditure : "Nashik",
     },
     {
       id: 'e2',
       title: 'Petrol',
-      amount: 'Rs.100',
+      amount: 100,
       date: new Date(2021, 2, 28),
       LocationOfExpenditure : "Nashik",
     },
     {
       id: 'e3',
       title: 'Movies',
-      amount: 'Rs.200',
+      amount: 200,
       date: new Date(2021, 5, 12),
       LocationOfExpenditure : "Nashik",
     }
@@ -64,6 +66,7 @@ const App = () => {
         <NewExpense onAddExpense={addExpenseHandler} />
         <Card className='expenses'>
         <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpenseLists items={filteredExpenses} />
         </Card>
       </li>
