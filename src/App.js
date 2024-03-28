@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import ExpensesFilter from './components/Expenses/ExpenseFilter';
 
 import NewExpense from "./components/NewExpense/NewExpense";
-import ExpenseItem from "./components/Expenses/ExpenseItem";
+
+
+import ExpenseLists from './components/Expenses/ExpenseLists';
 
 import Card from "./components/UI/Card";
 
@@ -58,19 +60,13 @@ const App = () => {
     <div>
       <h2>Let's get started!</h2>
       <h2 className='expense-item__description h2'>Expense Items</h2>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <Card className='expenses'>
-      <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-      {filteredExpenses.map( (expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          LocationOfExpenditure={expense.LocationOfExpenditure}
-        />
-      ))}
-      </Card>
+      <li>
+        <NewExpense onAddExpense={addExpenseHandler} />
+        <Card className='expenses'>
+        <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+        <ExpenseLists items={filteredExpenses} />
+        </Card>
+      </li>
     </div>
   );
 }
